@@ -7,533 +7,433 @@ To compare different prompting techniques and evaluate their effectiveness in so
 
 ## Project Title
 
-**ReasonTrace – Explainable Face Liveness Detection System**
+### GENERATIVE AI FOR DEMYSTIFYING LEGAL DOCUMETS
 
 ## Selected Engineering Scenario
 
 ### Problem Statement
 
-Face recognition systems are increasingly used for authentication and security. However, attackers can attempt to fool these systems using photographs, videos, or replay attacks. Therefore, a reliable **face liveness detection mechanism** is required to determine whether the input is from a genuine live person or a spoofed face.
+Legal documents such as rental agreements, employment contracts, terms and conditions, and legal notices often contain complex legal terminology and lengthy sentences that are difficult for ordinary users to understand. The project aims to use Generative AI to simplify legal language, identify important clauses, explain their meaning in simple terms, and highlight potential risks or obligations.
 
-The selected engineering problem is:
-
-> **How can a computer-vision-based system accurately detect whether a face presented to a camera is live or a spoof using suitable features, preprocessing techniques, and machine-learning/deep-learning methods?**
-
-The solution should consider detection accuracy, real-time performance, robustness against different spoofing attacks, and practical deployment requirements.
+For the prompting experiment, the same legal document or legal clause can be given to an AI system using different prompting techniques, and the resulting responses can be compared.
 
 
-# 1. Base Prompt
-
-The following simple prompt was used without applying advanced prompting techniques:
-
-> "Suggest a method to detect face spoofing using computer vision."
-
-### AI-Generated Output
-
-A computer-vision-based face spoofing detection system can use a camera to capture the user's face and determine whether it is real or fake. The system can perform face detection, extract facial features, and use a machine-learning model to classify the input as live or spoof.
-
-A CNN-based model can be trained using real and spoofed face images. During testing, the camera captures the face, preprocesses the image, and passes it to the trained model. The model then predicts whether the face is genuine or a spoof.
-
-### Observation
-
-The response provides a basic solution but does not give enough information about:
-
-- Dataset selection
-- Spoofing attack types
-- Preprocessing
-- Model architecture
-- Evaluation metrics
-- Real-time implementation
-- Limitations
-- Engineering feasibility
 
 
-# 2. Prompting Technique 1 – Straightforward Prompt
+## Requirement Analysis
 
-### Prompt
+For the project “Generative AI for Demystifying Legal Documents,” requirement analysis identifies the hardware, software, functional, and non-functional requirements needed to develop a system that can process complex legal documents and explain them in simple language.
 
-> "Design a computer-vision-based face liveness detection system that can distinguish between a genuine face and spoof attacks such as photographs, videos, and replay attacks. Suggest suitable preprocessing, machine-learning/deep-learning methods, and evaluation metrics."
+### 1. Functional Requirements
+   
+Document Upload – The system should allow users to upload legal documents such as PDF, DOCX, or text files.
+Document Text Extraction – The system should extract readable text from the uploaded legal document.
+Legal Document Analysis – The system should analyze the extracted content and identify important clauses, terms, obligations, and conditions.
+Simplification – The Generative AI model should convert complex legal language into simple and understandable language.
+Clause Explanation – The system should provide explanations for individual legal clauses when requested by the user.
+Key Information Identification – The system should highlight important information such as dates, penalties, responsibilities, rights, fees, and termination conditions.
+Question Answering – Users should be able to ask questions about the uploaded document and receive answers based on its contents.
+Risk/Concern Identification – The system can identify potentially important or concerning clauses and explain why they may require attention.
+Summary Generation – The system should generate a concise summary of the entire document.
+User-Friendly Output – Results should be presented in a clear format using headings, bullet points, and simple language.
 
-### AI-Generated Output
+### 2. Non-Functional Requirements
 
-A face liveness detection system can be developed using the following pipeline:
+Accuracy: The generated explanation should remain faithful to the original legal document.
+Clarity: The output should be understandable to users without legal knowledge.
+Performance: The system should process documents and generate responses within a reasonable time.
+Security: Uploaded legal documents and user information should be protected from unauthorized access.
+Scalability: The system should be capable of handling documents of different sizes and types.
+Usability: The interface should be simple and easy to navigate.
+Reliability: The system should provide consistent results for similar inputs.
+Privacy: User-uploaded legal documents should not be unnecessarily exposed or shared.
 
-```text
-Camera Input
-      ↓
-Face Detection
-      ↓
-Preprocessing
-      ↓
-Feature Extraction
-      ↓
-Classification
-      ↓
-Live / Spoof Decision
+### 3. Hardware Requirements
+
+Processor: Intel Core i5 or equivalent
+RAM: Minimum 8 GB
+Storage: Minimum 256 GB
+Internet: Required for accessing Generative AI/API services
+Display: Standard monitor or laptop display
+
+### 4. Software Requirements
+
+Operating System: Windows/Linux/macOS
+Programming Language: Python
+Frontend: HTML, CSS, JavaScript / Streamlit
+Backend: Python-based application
+AI Model: Generative AI/LLM
+Document Processing: PDF/DOCX text extraction libraries
+Database: SQLite/MySQL or another suitable database, if required
+Development Environment: VS Code/Jupyter Notebook
+API: Generative AI API for document analysis and response generation
+
+### 5. User Requirements
+
+The user should be able to:
+
+Upload Document → Extract Text → Analyze Legal Content → Simplify Clauses → View Summary → Ask Questions → Receive Explanations
+
+The system should also clearly indicate that its output is intended for understanding and informational purposes and is not a substitute for advice from a qualified lawyer.# RESULT
+
+## Architecture Flow
+
+User → Document Upload → Text Extraction → Preprocessing → Prompt Engineering → Generative AI Model → Legal Analysis → Simplification & Summary → User Interface
+
+### 1. User Interface Layer
+
+The user interacts with the system through a web-based interface. The user can upload a legal document and request operations such as summarization, clause explanation, key-point extraction, and question answering.
+
+### 2. Document Processing Layer
+
+The uploaded document is processed to extract its textual content. PDF, DOCX, or text documents can be converted into machine-readable text. Unnecessary spaces, symbols, and formatting issues can then be removed during preprocessing.
+
+### 3. Prompt Engineering Layer
+
+The extracted legal content is combined with carefully designed prompts. Different prompting techniques such as zero-shot, few-shot, role-based, and constraint-based prompting can be applied to determine how each technique affects the quality of the generated response.
+
+### 4. Generative AI Layer
+
+The processed text and prompt are provided to a Large Language Model (LLM). The model analyzes the document and generates a response based on the user's request.
+
+### 5. Legal Information Analysis Layer
+
+The generated output focuses on useful information such as:
+
+Important clauses
+Rights and responsibilities
+Obligations
+Payment terms
+Penalties
+Deadlines
+Termination conditions
+Potential areas requiring attention
+### 6. Output Generation Layer
+
+The complex legal information is converted into simple, user-friendly explanations. The system can provide a document summary, clause-by-clause explanation, or answers to user questions.
+
+### 7. Evaluation Layer
+
+For the prompting experiment, outputs generated using different prompting techniques are compared using:
+
+Relevance → Accuracy → Completeness → Clarity → Feasibility → Usefulness
+
+The best-performing prompting technique can then be identified for the proposed system.
+
+#### Simple Architecture Diagram
+
+             ┌──────────────────┐
+             │      USER        │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Document Upload  │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Text Extraction  │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Preprocessing    │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Prompt Engineering│
+             │ Zero/Few/Role etc.│
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Generative AI /  │
+             │      LLM         │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Legal Analysis   │
+             └────────┬─────────┘
+                      │
+          ┌───────────┼───────────┐
+          ▼           ▼           ▼
+      Summary     Explanation   Q&A
+          │           │           │
+          └───────────┼───────────┘
+                      ▼
+             ┌──────────────────┐
+             │ Simple & Clear   │
+             │     Output       │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Evaluation of    │
+             │ Prompt Techniques│
+             └──────────────────┘
+
+
+### Algorithm
+Algorithm: Generative AI for Demystifying Legal Documents
+
+Input: Legal document uploaded by the user
+Output: Simplified explanation, summary, important clauses, and answers to user queries
+
+Start
+Allow the user to upload a legal document such as PDF, DOCX, or TXT.
+Validate the uploaded file and extract the textual content from the document.
+Perform text preprocessing by removing unnecessary spaces, symbols, and formatting while preserving the original meaning.
+Divide the document into manageable sections or clauses if the document is lengthy.
+Identify the user's requirement, such as:
+Summarize the document
+Explain a legal clause
+Identify important terms
+Find rights and obligations
+Answer a question about the document
+Select an appropriate prompting technique, such as:
+Zero-shot prompting
+Few-shot prompting
+Role-based prompting
+Step-by-step prompting
+Constraint-based prompting
+Construct a prompt containing the legal text and user's requirement.
+Send the prompt to the Generative AI/LLM.
+Analyze the generated response to identify:
+Key clauses
+Rights and responsibilities
+Payment terms
+Penalties
+Dates and deadlines
+Termination conditions
+Potential concerns
+Convert complex legal terminology into simple and understandable language without changing the original meaning.
+Generate the final response in a structured format containing the summary, explanations, key points, and relevant answers.
+Display the generated result to the user.
+For the prompting experiment, evaluate the response using relevance, accuracy, completeness, clarity, feasibility, and usefulness.
+Compare the results produced by different prompting techniques.
+Identify the most effective prompting technique based on the evaluation.
+Stop.
+
+## Flowchart
+                 ┌───────────────┐
+                 │     START     │
+                 └───────┬───────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Upload Legal        │
+              │ Document            │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Validate Document   │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Extract Text from   │
+              │ Document            │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Preprocess & Clean  │
+              │ Extracted Text      │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Identify User       │
+              │ Requirement         │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Select Prompting    │
+              │ Technique           │
+              └──────────┬──────────┘
+                         │
+                         ▼
+          ┌──────────────────────────────┐
+          │ Create Prompt using Legal    │
+          │ Text + User Requirement       │
+          └──────────────┬───────────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Generative AI /     │
+              │ LLM Processing      │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Analyze Legal       │
+              │ Content             │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Simplify Legal      │
+              │ Language            │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Generate Summary /  │
+              │ Explanation / Q&A   │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Display Results to  │
+              │ User                │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Evaluate Response   │
+              │ Relevance, Accuracy,│
+              │ Clarity, etc.       │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Compare Prompting   │
+              │ Techniques          │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Select Most         │
+              │ Effective Technique │
+              └──────────┬──────────┘
+                         │
+                         ▼
+                 ┌───────────────┐
+                 │      END      │
+                 └───────────────┘
+
+### For Your Prompting Experiment
+
+You can modify the create_prompt() function and test the same legal clause using different prompting techniques:
+
+### 1. Zero-shot
+```
+Explain this legal clause in simple language.
+```
+### 2. Role-based
+```
+Act as a legal document simplification assistant
+and explain this clause to a non-lawyer.
+```
+### 3. Few-shot
+```
+Example:
+Legal: "The tenant shall..."
+Simple: "The person renting the house must..."
+
+Now simplify the following clause:
+...
+```
+### 4. Constraint-based
+```
+Explain this clause using simple English.
+Use no legal jargon.
+Give the answer in 3 bullet points.
+Do not change the original meaning.
 ```
 
-1. Capture the user's face using a camera.
-2. Detect the face using a face-detection algorithm.
-3. Resize and normalize the detected face.
-4. Extract relevant facial features.
-5. Use a CNN or transfer-learning model for classification.
-6. Train the model using real and spoofed face samples.
-7. Evaluate the system using accuracy, precision, recall, F1-score and False Acceptance Rate.
-8. Deploy the trained model for real-time prediction.
+## Testing
 
+Testing for the project “Generative AI for Demystifying Legal Documents” is performed to verify whether the system correctly processes legal documents and generates clear, accurate, and useful explanations. The same legal document can also be tested using different prompting techniques to compare their effectiveness.
 
-# 3. Prompting Technique 2 – Role-Based Prompting
+### 1. Functional Testing
 
-### Prompt
+Functional testing checks whether each major feature works correctly.
 
-> "Act as an expert computer-vision and machine-learning engineer. Design a practical face liveness detection system for a final-year engineering project. The system must identify real users and detect photo, video, and replay attacks. Recommend suitable datasets, preprocessing techniques, model architecture, training strategy, evaluation metrics, and real-time deployment methods. Explain the solution step by step in an implementation-oriented manner."
+### 2. Prompt Testing
 
-### AI-Generated Output
+The same legal clause is given to the AI using different prompting techniques.
 
-An appropriate architecture for the project is:
+### 3. Evaluation Testing
 
-```text
-Webcam
-   ↓
-Face Detection
-   ↓
-Face Alignment
-   ↓
-Image Preprocessing
-   ↓
-CNN Feature Extraction
-   ↓
-Liveness Classifier
-   ↓
-Live / Spoof Output
-```
-
-### Recommended Components
-
-**Face Detection:**  
-Use a lightweight detector such as MediaPipe Face Detection or a YOLO-based face detector.
-
-**Preprocessing:**
-
-- Detect and crop the face.
-- Resize to a fixed resolution.
-- Normalize pixel values.
-- Perform data augmentation.
-- Optionally perform face alignment.
+Each generated response is evaluated using a 1–5 rating scale.
 
-**Model:**
+### 4. Overall Testing Process
 
-A lightweight CNN or transfer-learning architecture can be used. MobileNet or EfficientNet can be considered when real-time performance is important.
+Input Legal Document → Apply Prompt → Generate AI Response → Compare with Original Document → Evaluate Response → Record Score → Compare Prompting Techniques → Identify Best Technique
 
-**Dataset:**
+### Testing Conclusion
 
-The dataset should contain genuine faces and multiple spoof categories, including:
+Testing helps verify that the system can successfully extract, analyze, simplify, and explain legal documents. The prompting comparison also helps determine which technique produces the most accurate, clear, complete, and useful explanation for users without a legal background.
 
-- Printed photographs
-- Mobile-phone displays
-- Replay videos
-- Presentation attacks where applicable
+## Documentation
+### Project Title
 
-**Evaluation:**
+#### Generative AI for Demystifying Legal Documents
 
-The model should be evaluated using:
+### 1. Introduction
 
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- False Acceptance Rate
-- False Rejection Rate
-- Equal Error Rate
+Legal documents contain complex terminology, lengthy sentences, and clauses that are often difficult for people without legal knowledge to understand. The proposed system uses Generative AI to analyze legal documents and convert complicated legal language into simple and understandable explanations. It helps users identify important clauses, rights, responsibilities, penalties, dates, and other relevant information.
 
-For real-time deployment, inference time and frames-per-second should also be measured.
+### 2. Objective
 
+The main objective of the project is to develop an AI-based system that can simplify legal documents while preserving their original meaning. The project also compares different prompting techniques to identify which technique produces the most effective responses.
 
-# 4. Prompting Technique 3 – Structured Prompting
+### 3. System Description
 
-### Prompt
+The system allows a user to upload a legal document. The document is processed and its text is extracted. The extracted text is provided to a Generative AI model along with a carefully designed prompt. The AI analyzes the content and generates a simplified explanation, summary, and answers to user questions.
 
-> "Solve the following engineering problem using a structured approach.
->
-> Problem: Develop a real-time face liveness detection system capable of distinguishing genuine faces from photo, video, and replay attacks.
->
-> Provide the answer under these headings:
->
-> 1. Problem analysis
-> 2. System requirements
-> 3. Proposed architecture
-> 4. Dataset
-> 5. Preprocessing
-> 6. Model selection
-> 7. Training process
-> 8. Evaluation metrics
-> 9. Real-time deployment
-> 10. Limitations
-> 11. Expected outcome
->
-> Prioritize accuracy, real-time performance, robustness and implementation feasibility."
+### 4. Modules
 
-### AI-Generated Output
+Module 1 – Document Upload
+Allows users to upload PDF, DOCX, or TXT legal documents.
 
-### 1. Problem Analysis
+Module 2 – Text Extraction
+Extracts readable text from the uploaded document.
 
-The main challenge is distinguishing a genuine three-dimensional human face from a two-dimensional or replayed representation.
+Module 3 – Text Preprocessing
+Cleans and organizes the extracted text for further processing.
 
-### 2. System Requirements
+Module 4 – Prompt Engineering
+Creates prompts using different techniques such as zero-shot, few-shot, role-based, step-by-step, and constraint-based prompting.
 
-- Camera input
-- Face detection
-- Face preprocessing
-- Liveness classification
-- Real-time prediction
-- Spoof attack detection
-- Performance evaluation
+Module 5 – Generative AI Processing
+Sends the document content and prompt to the AI model and receives the generated response.
 
-### 3. Proposed Architecture
+Module 6 – Legal Document Simplification
+Converts complex legal terminology into simpler language while maintaining the meaning.
 
-```text
-Camera
-   ↓
-Face Detection
-   ↓
-Face Cropping & Alignment
-   ↓
-Preprocessing
-   ↓
-Feature Extraction
-   ↓
-Liveness Classification
-   ↓
-Live / Spoof
-```
+Module 7 – Information Extraction
+Identifies important clauses, rights, obligations, penalties, payments, dates, and termination conditions.
 
-### 4. Dataset
+Module 8 – Question Answering
+Allows users to ask questions about the uploaded document.
 
-The dataset should include real faces and several presentation-attack categories. Training and testing data should be separated properly to prevent data leakage.
+Module 9 – Evaluation
+Compares responses generated using different prompting techniques based on relevance, accuracy, completeness, clarity, feasibility, and usefulness.
 
-### 5. Preprocessing
+### 5. Limitations
+AI-generated explanations may occasionally contain errors.
+The system cannot replace professional legal advice.
+Scanned documents may require OCR for text extraction.
+Very large documents may require processing in smaller sections.
+The quality of the output depends partly on the quality of the prompt and AI model.
+### 6. Testing and Evaluation
 
-Images can be resized, normalized and augmented using operations such as rotation, scaling and brightness variation.
+The system is tested using different types of legal documents and user queries. Each prompting technique is evaluated using a 1–5 rating scale for:
 
-### 6. Model Selection
+Relevance, Accuracy, Completeness, Clarity, Feasibility, and Usefulness.
 
-A CNN-based classifier or transfer-learning model such as MobileNet/EfficientNet can be selected.
+The results are compared to determine the prompting technique that provides the best overall performance.
 
-### 7. Training
+### 7. Conclusion
 
-The dataset is divided into training, validation and testing sets. The model is trained using an appropriate loss function and optimizer.
+The Generative AI for Demystifying Legal Documents system provides a practical approach for making complex legal information easier to understand. By combining document processing, prompt engineering, and Generative AI, the system can produce simplified explanations, summaries, and answers to document-related questions. The comparison of prompting techniques further helps identify how prompt design influences the quality and usefulness of AI-generated legal explanations.
 
-### 8. Evaluation
-
-Accuracy, precision, recall, F1-score, FAR, FRR and EER can be used.
-
-### 9. Deployment
-
-A lightweight model can be integrated with OpenCV and executed using a webcam for real-time prediction.
-
-### 10. Limitations
-
-Performance may decrease with:
-
-- Poor lighting
-- Unseen spoofing methods
-- Low-quality cameras
-- Large changes in face pose
-- Attacks not represented in the training dataset
-
-### 11. Expected Outcome
-
-The system should classify the detected face as **Live** or **Spoof** with high accuracy while maintaining acceptable real-time performance.
-
-
-# 5. Prompting Technique 4 – Constraint-Based Prompting
-
-### Prompt
-
-> "Design a face liveness detection solution under the following constraints:
->
-> - It must work with a normal webcam.
-> - It must operate close to real time.
-> - It must detect printed-photo, screen-replay and video-based attacks.
-> - The solution should be suitable for a final-year engineering project.
-> - Prefer lightweight and publicly available models/datasets.
-> - Avoid requiring specialized hardware.
-> - Include preprocessing, model selection, training, testing and deployment.
-> - Explain the advantages and limitations of the proposed approach.
-> - Suggest measurable metrics for validating the engineering solution.
->
-> Provide the solution as a practical implementation plan."
-
-### AI-Generated Output
-
-A practical solution is to build a lightweight CNN-based liveness classifier.
-
-### System Pipeline
-
-```text
-Webcam
-   ↓
-Face Detection
-   ↓
-Face Crop
-   ↓
-Image Normalization
-   ↓
-Lightweight CNN
-   ↓
-Liveness Score
-   ↓
-Threshold Decision
-   ↓
-LIVE / SPOOF
-```
-
-The webcam continuously captures frames. A face detector identifies the face region. The detected region is resized and normalized before being passed to the liveness model.
-
-A lightweight transfer-learning architecture can be used to reduce computational requirements.
-
-The training dataset should contain:
-
-- Genuine faces
-- Printed-photo attacks
-- Screen attacks
-- Replay attacks
-
-Data augmentation can improve robustness against variations in lighting, scale and orientation.
-
-### Validation Metrics
-
-| Metric | Purpose |
-|---|---|
-| Accuracy | Overall classification performance |
-| Precision | Reliability of spoof predictions |
-| Recall | Ability to detect spoof samples |
-| F1-score | Balance between precision and recall |
-| FAR | Rate of spoof samples incorrectly accepted |
-| FRR | Rate of genuine users incorrectly rejected |
-| FPS | Real-time performance |
-
-
-# 6. Prompting Technique 5 – Step-by-Step Prompting
-
-### Prompt
-
-> "Develop a face liveness detection system by following these stages:
->
-> Stage 1: Identify the major security problem.
->
-> Stage 2: Identify possible spoofing attacks.
->
-> Stage 3: Determine the input and output requirements.
->
-> Stage 4: Design the computer-vision pipeline.
->
-> Stage 5: Select suitable features and a classification model.
->
-> Stage 6: Select appropriate training and testing data.
->
-> Stage 7: Define evaluation metrics.
->
-> Stage 8: Consider real-time deployment constraints.
->
-> Stage 9: Identify limitations and possible improvements.
->
-> Give concise engineering reasoning for each stage and produce a final recommended architecture."
-
-### AI-Generated Output
-
-### Stage 1 – Security Problem
-
-Traditional face-recognition systems may accept a photograph or replayed video as a genuine face. Liveness detection is therefore required before authentication.
-
-### Stage 2 – Spoofing Attacks
-
-Common attacks include:
-
-- Printed photographs
-- Smartphone screen attacks
-- Replay videos
-- Other presentation attacks
-
-### Stage 3 – Input and Output
-
-**Input:** Live webcam frame.
-
-**Output:** Liveness classification and confidence score.
-
-### Stage 4 – Computer-Vision Pipeline
-
-```text
-Video Frame
-     ↓
-Face Detection
-     ↓
-Face Alignment
-     ↓
-Preprocessing
-     ↓
-Feature Extraction
-     ↓
-Liveness Classifier
-     ↓
-Decision
-```
-
-### Stage 5 – Model
-
-A lightweight CNN or transfer-learning architecture is appropriate because the application requires real-time inference.
-
-### Stage 6 – Data
-
-Use a dataset containing genuine and spoof samples from multiple attack types. Training and testing identities should preferably be separated to measure generalization.
-
-### Stage 7 – Metrics
-
-Use accuracy, precision, recall, F1-score, FAR, FRR and EER.
-
-### Stage 8 – Deployment
-
-OpenCV can be used for webcam acquisition and face processing. A lightweight deep-learning model can perform classification.
-
-### Stage 9 – Limitations
-
-The model may fail against unknown attacks or environmental conditions that are not represented in the training data.
-
-### Final Architecture
-
-```text
-Webcam
-   ↓
-Face Detection
-   ↓
-Preprocessing
-   ↓
-Lightweight CNN
-   ↓
-Liveness Score
-   ↓
-Threshold
-   ↓
-┌─────────────┐
-│ LIVE / SPOOF│
-└─────────────┘
-```
-
-
-# 7. Comparison of Prompting Techniques
-
-| Prompting Technique | Quality | Accuracy | Depth | Clarity | Feasibility | Usefulness |
-|---|---|---|---|---|---|---|
-| Naïve/Base Prompt | Medium | Medium | Low | Medium | Medium | Low |
-| Straightforward Prompt | Good | Good | Medium | Good | Good | Good |
-| Role-Based Prompt | Very Good | Very Good | High | Very Good | Very Good | Very Good |
-| Structured Prompt | Excellent | Very Good | Excellent | Excellent | Very Good | Excellent |
-| Constraint-Based Prompt | Excellent | Excellent | High | Excellent | Excellent | Excellent |
-| Step-by-Step Prompt | Excellent | Very Good | Excellent | Excellent | Very Good | Excellent |
-
----
-
-# 8. Analysis and Observations
-
-The experiment demonstrates that **prompt quality significantly influences the quality of AI-generated engineering solutions**.
-
-The naïve prompt produced a general answer containing only the basic concept of using computer vision and CNNs. It did not provide sufficient information for direct engineering implementation.
-
-The straightforward prompt improved the response by explicitly mentioning the required task, spoofing attacks, preprocessing and evaluation.
-
-The **role-based prompt** produced a more domain-oriented response because the AI was instructed to behave as a computer-vision and machine-learning engineer.
-
-The **structured prompt** produced one of the most useful responses because the required answer format was clearly specified.
-
-The **constraint-based prompt** was particularly effective for practical engineering design. By specifying webcam usage, real-time requirements, lightweight models, publicly available datasets and hardware limitations, the AI generated a solution that was more realistic for a student project.
-
-The step-by-step prompt helped organize the reasoning process and resulted in a systematic engineering pipeline.
-
-
-# 9. Naïve vs Improved Prompts
-
-| Aspect | Naïve Prompt | Improved Prompt |
-|---|---|---|
-| Problem Definition | General | Specific |
-| Context | Very Limited | Project-Specific |
-| Technical Requirements | Not Specified | Clearly Defined |
-| Output Structure | Unspecified | Structured |
-| Constraints | None | Explicit |
-| Model Selection | Generic | Justified |
-| Evaluation | Limited | Multiple Metrics |
-| Deployment | Not Discussed | Included |
-| Engineering Feasibility | Moderate | High |
-| Overall Usefulness | Low | High |
-
-
-# 11. Final Selected Prompting Technique
-
-## Constraint-Based Structured Prompting
-
-This technique was selected because the engineering problem requires:
-
-- Specific hardware constraints
-- Real-time operation
-- Multiple spoofing attacks
-- Suitable model selection
-- Dataset requirements
-- Evaluation metrics
-- Deployment considerations
-- Engineering feasibility
-
-Combining **structure + constraints** generated the most practical and project-oriented response.
-
-
-# 12. Refined / Final Prompt
-
-> **Act as an expert computer-vision and machine-learning engineer and design a practical real-time face liveness detection system for my final-year engineering project, "ReasonTrace".**
->
-> **Problem:** The system must distinguish a genuine live person from spoofing attacks such as printed photographs, mobile-screen attacks, and replayed videos using a normal webcam.
->
-> **Requirements:**
->
-> 1. Use only a normal webcam and commonly available computing hardware.
-> 2. The system should operate close to real time.
-> 3. Recommend suitable face-detection and liveness-detection approaches.
-> 4. Suggest suitable publicly available datasets containing genuine and spoof samples.
-> 5. Explain preprocessing and data augmentation.
-> 6. Recommend a lightweight CNN/transfer-learning architecture and justify the choice.
-> 7. Describe the training, validation and testing process.
-> 8. Include accuracy, precision, recall, F1-score, FAR, FRR and EER as evaluation metrics.
-> 9. Explain the complete deployment pipeline using appropriate computer-vision tools.
-> 10. Discuss possible limitations, security weaknesses and improvements.
->
-> **Present the answer using these sections:**
->
-> - Problem Analysis
-> - Objectives
-> - System Architecture
-> - Dataset
-> - Preprocessing
-> - Model Selection
-> - Training
-> - Testing
-> - Evaluation Metrics
-> - Real-Time Deployment
-> - Limitations
-> - Future Improvements
-> - Expected Result
->
-> Ensure that the proposed solution is technically realistic, implementable by an engineering student, and suitable for experimental validation.
-
-
-### Validation Table
-
-| Test Condition | Expected | Actual | Result |
-|---|---|---|---|
-| Genuine Face | LIVE | LIVE | Correct |
-| Printed Photo | SPOOF | SPOOF | Correct |
-| Mobile Screen | SPOOF | SPOOF | Correct |
-| Replay Video | SPOOF | SPOOF | Correct |
-| Low Light | LIVE/SPOOF | — | — |
-| Unseen User | LIVE | — | — |
-
-
-# RESULT
-
-**The prompt for the above-mentioned engineering problem was executed successfully. Different prompting techniques were applied and compared. The results demonstrated that improved prompts produced better quality, accuracy, depth, clarity and engineering usefulness than the naïve prompt. The constraint-based structured prompting technique was selected as the most effective technique, and the final refined prompt was validated through an engineering-oriented evaluation plan.**
+## RESULT 
+The prompt for the above-mentioned engineering problem was executed successfully. Different prompting techniques were applied and compared. The results demonstrated that improved prompts produced better quality, accuracy, depth, clarity and engineering usefulness than the naïve prompt. The constraint-based structured prompting technique was selected as the most effective technique, and the final refined prompt was validated through an engineering-oriented evaluation plan.
